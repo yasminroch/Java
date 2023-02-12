@@ -1,0 +1,1217 @@
+See the Assessment Guide for information on how to interpret this report.
+
+ASSESSMENT SUMMARY
+
+Compilation:  PASSED
+API:          PASSED
+
+SpotBugs:     FAILED (1 warning)
+PMD:          FAILED (4 warnings)
+Checkstyle:   FAILED (0 errors, 15 warnings)
+
+Correctness:  24/34 tests passed
+Memory:       2/2 tests passed
+Timing:       51/51 tests passed
+
+Aggregate score: 82.35%
+[ Compilation: 5%, API: 5%, Style: 0%, Correctness: 60% , Timing: 10% , Memory: 20% ]
+
+ASSESSMENT DETAILS
+
+The following files were submitted:
+----------------------------------
+ 134 Feb 12 22:16 AnnotationType.java
+147K Feb 12 22:16 COS_126.xml
+142K Feb 12 22:16 COS_126.xml.2020.1
+ 189 Feb 12 22:16 Class.java
+2.4K Feb 12 22:16 Clock.class
+2.9K Feb 12 22:16 Clock.java
+2.2K Feb 12 22:16 ColorHSB.class
+3.0K Feb 12 22:16 ColorHSB.java
+1.3K Feb 12 22:16 Computer\ Science.iml
+ 128 Feb 12 22:16 Enum.java
+ 268 Feb 12 22:16 File\ Header.java
+2.3K Feb 12 22:16 Huntingtons.class
+2.2K Feb 12 22:16 Huntingtons.java
+ 133 Feb 12 22:16 Interface.java
+3.4K Feb 12 22:16 KernelFilter.class
+4.5K Feb 12 22:16 KernelFilter.java
+4.2K Feb 12 22:16 Project.xml
+1.1K Feb 12 22:16 checkstyle-idea.xml
+ 10M Feb 12 22:16 chromosome4-hd.txt
+ 10M Feb 12 22:16 chromosome4-healthy.txt
+ 15K Feb 12 22:16 codeInsightSettings.xml
+ 142 Feb 12 22:16 codeStyleConfig.xml
+ 384 Feb 12 22:16 compiler.xml
+ 201 Feb 12 22:16 encodings.xml
+ 267 Feb 12 22:16 externalDependencies.xml
+ 290 Feb 12 22:16 file.template.settings.xml
+ 352 Feb 12 22:16 findbugs-idea.xml
+ 560 Feb 12 22:16 introcs.xml
+ 190 Feb 12 22:16 lift.xml
+112K Feb 12 22:16 logo.png
+ 215 Feb 12 22:16 misc.xml
+  58 Feb 12 22:16 module-info.java
+ 273 Feb 12 22:16 modules.xml
+ 102 Feb 12 22:16 package-info.java
+ 173 Feb 12 22:16 profiles_settings.xml
+ 121 Feb 12 22:16 repeats4.txt
+ 330 Feb 12 22:16 repeats64.txt
+ 357 Feb 12 22:16 saveactions_settings.xml
+ 320 Feb 12 22:16 web.txt
+ 66K Feb 12 22:16 wiki.txt
+6.4K Feb 12 22:16 workspace.xml
+
+
+********************************************************************************
+*  COMPILING                                                                    
+********************************************************************************
+
+
+% javac ColorHSB.java
+*-----------------------------------------------------------
+
+% javac Clock.java
+*-----------------------------------------------------------
+
+
+================================================================
+
+
+Checking the APIs of your programs.
+*-----------------------------------------------------------
+ColorHSB:
+
+Clock:
+
+================================================================
+
+
+********************************************************************************
+*  CHECKING STYLE AND COMMON BUG PATTERNS                                       
+********************************************************************************
+
+
+% spotbugs *.class
+*-----------------------------------------------------------
+H I DM_DEFAULT_ENCODING Dm: The method or constructor call 'new java.util.Scanner(InputStream)' relies on the default encoding when performing a byte-to-String (or String-to-byte) conversion.  At ColorHSB.java:[line 61]
+SpotBugs ends with 1 warning.
+
+
+================================================================
+
+
+% pmd .
+*-----------------------------------------------------------
+ColorHSB.java:11: The private instance (or static) variable 'hue' can be made 'final'; it is initialized only in the declaration or constructor. [ImmutableField]
+ColorHSB.java:12: The private instance (or static) variable 'saturation' can be made 'final'; it is initialized only in the declaration or constructor. [ImmutableField]
+ColorHSB.java:13: The private instance (or static) variable 'brightness' can be made 'final'; it is initialized only in the declaration or constructor. [ImmutableField]
+Huntingtons.java:70: Avoid printStackTrace(); use a logger call instead. [AvoidPrintStackTrace]
+PMD ends with 4 warnings.
+
+
+================================================================
+
+
+% checkstyle *.java
+*-----------------------------------------------------------
+
+% custom checkstyle checks for ColorHSB.java
+*-----------------------------------------------------------
+[WARN] ColorHSB.java:7: The 'main()' method must call either 'StdIn.isEmpty()' or 'StdIn.hasNextLine()' to determine when it has finished reading in the data. [MethodCallCount]
+[WARN] ColorHSB.java:7: The number (6) of calls to 'Integer.parseInt()' must equal the number (3) of integer command-line arguments. [CommandLineArgument]
+[WARN] ColorHSB.java:7: You must call 'StdIn.readString()' at least once from 'main()'. [MethodCallCount]
+[WARN] ColorHSB.java:7: You should call 'StdIn.readInt()' at least 3 times from 'main()'. [MethodCallCount]
+[WARN] ColorHSB.java:10:1: You should not need to use arrays in this program. [DescendantToken]
+[WARN] ColorHSB.java:18:26: '359' looks like an unnecessary constant. [MagicNumber]
+Checkstyle ends with 0 errors and 6 warnings.
+
+% custom checkstyle checks for Clock.java
+*-----------------------------------------------------------
+[WARN] Clock.java:7:1: '23' is an unnecessary numeric literal because it is derived from the number of hours per day (24) or the number of minutes per hour (60). [NumericLiteralCount]
+[WARN] Clock.java:7:1: '59' is an unnecessary numeric literal because it is derived from the number of hours per day (24) or the number of minutes per hour (60). [NumericLiteralCount]
+[WARN] Clock.java:7:1: The numeric literal '23' appears 2 times. Define a constant variable (such as 'HOURS_PER_DAY'). [NumericLiteralCount]
+[WARN] Clock.java:7:1: The numeric literal '24' appears 2 times. Define a constant variable (such as 'HOURS_PER_DAY'). [NumericLiteralCount]
+[WARN] Clock.java:7:1: The numeric literal '59' appears 2 times. Define a constant variable (such as 'MINUTES_PER_HOUR'). [NumericLiteralCount]
+[WARN] Clock.java:7:1: The numeric literal '60' appears 4 times. Define a constant variable (such as 'MINUTES_PER_HOUR'). [NumericLiteralCount]
+[WARN] Clock.java:7:1: You should not need to use arrays in this program. [DescendantToken]
+[WARN] Clock.java:71:24: The 'main()' method must directly call the public method 'tic()'. [MainCallsAllPublicMethods]
+[WARN] Clock.java:71:24: The 'main()' method must directly call the public method 'toc()'. [MainCallsAllPublicMethods]
+Checkstyle ends with 0 errors and 9 warnings.
+
+
+================================================================
+
+
+********************************************************************************
+*  TESTING CORRECTNESS
+********************************************************************************
+
+Testing correctness of ColorHSB
+*-----------------------------------------------------------
+Running 17 total tests.
+
+Test 1a: construct a ColorHSB object and call toString()
+  * (25, 84, 97)
+  * (0, 0, 0)
+  * (359, 100, 100)
+==> passed
+
+Test 1b: construct random ColorHSB objects and call toString()
+  * h <= 359, s <= 100, b <= 100
+  * h <=  60, s <=  10, b <=  10
+==> passed
+
+Test 2a: construct a ColorHSB object and call isGrayscale()
+  * (25, 84, 97)
+  * (0, 0, 0)
+  * (0, 50, 0)
+  * (0, 0, 50)
+  * (359, 100, 100)
+==> passed
+
+Test 2b: construct random ColorHSB objects and call isGrayscale()
+  * h <= 359, s <= 100, b <= 100
+  * h  =   0, s <= 100, b <= 100
+  * h <= 359, s  =   0, b <= 100
+  * h <= 359, s <= 100, b  =   0
+  * h <= 359, s  =   0, b  =   0
+  * h <=  10, s <=  10, b <=  10
+==> passed
+
+Test 3a: construct two ColorHSB objects and call distanceSquaredTo()
+  * (350, 100, 45) to (0, 100, 50)
+  * (25, 84, 97) to (0, 100, 100)
+  * (25, 84, 97) to (26, 85, 96)
+  * (180, 100, 100) to (0, 0, 0)
+==> passed
+
+Test 3b: construct random pairs of ColorHSB objects and call distanceSquaredTo()
+  * h <= 359, s <= 100, b <= 100
+  * h <=  60, s <=  10, b <=  10
+  * h <= 359, s <= 100, b  =   0
+  * h <= 359, s  =   0, b <= 100
+  * h  =   0, s <= 100, b <= 100
+==> passed
+
+Test 3c: construct random pairs of ColorHSB objects and check that
+         distanceSquaredTo() is symmetric
+  * h <= 359, s <= 100, b <= 100
+  * h <=  60, s <=  10, b <=  10
+  * h <= 359, s <= 100, b  =   0
+  * h <= 359, s  =   0, b <= 100
+  * h  =   0, s <= 100, b <= 100
+==> passed
+
+Test 4: create two ColorHSB objects and call the methods isGrayscale(),
+        toString(), and distanceSquaredTo() with probabilities (p1, p2, p3)
+        and check that they return the same values in each call
+  * 100 random calls (0.8, 0.1, 0.1)
+  * 100 random calls (0.8, 0.1, 0.1)
+  * 100 random calls (0.1, 0.8, 0.1)
+  * 100 random calls (0.1, 0.8, 0.1)
+  * 100 random calls (0.1, 0.1, 0.8)
+  * 100 random calls (0.1, 0.1, 0.8)
+==> passed
+
+Test 5a: check formatting of main() for inputs from exam specification
+  % java-introcs ColorHSB 25 84 97 < web.txt
+  null
+
+   - line 0 of output in student solution: 
+     'null'
+   - the required format is:
+     '<string> (<integer>, <integer>, integer>)'
+
+  % java-introcs ColorHSB 350 100 45 < web.txt
+  null
+
+   - line 0 of output in student solution: 
+     'null'
+   - the required format is:
+     '<string> (<integer>, <integer>, integer>)'
+
+  % java-introcs ColorHSB 25 84 97 < wiki.txt
+  null
+
+   - line 0 of output in student solution: 
+     'null'
+   - the required format is:
+     '<string> (<integer>, <integer>, integer>)'
+
+==> FAILED
+
+Test 5b: check that main() reads all data from standard input
+  * java-introcs ColorHSB 25 84 97 < web.txt
+    - student solution does not read any data from standard input
+    - number of tokens read          = 0
+    - number of tokens left unread   = 64
+    - number of tokens in input file = 64
+
+  * java-introcs ColorHSB 350 100 45 < web.txt
+    - student solution does not read any data from standard input
+    - number of tokens read          = 0
+    - number of tokens left unread   = 64
+    - number of tokens in input file = 64
+
+  * java-introcs ColorHSB 25 84 97 < wiki.txt
+    - student solution does not read any data from standard input
+    - number of tokens read          = 0
+    - number of tokens left unread   = 5184
+    - number of tokens in input file = 5184
+
+==> FAILED
+
+Test 5c: check correctness of main() for inputs from exam specification
+  * java-introcs ColorHSB 25 84 97 < web.txt
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Red"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 25 84 97
+
+    - standard input:
+      White     0   0 100
+      Silver    0   0  75
+      Gray      0   0  50
+      Black     0   0   0
+      Red       0 100 100
+      Maroon    0 100  50
+         .
+         .
+         .
+      Teal    180 100  50
+      Blue    240 100 100
+      Navy    240 100  50
+      Fuchsia 300 100 100
+      Purple  300 100  50
+
+  * java-introcs ColorHSB 350 100 45 < web.txt
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Maroon"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 350 100 45
+
+    - standard input:
+      White     0   0 100
+      Silver    0   0  75
+      Gray      0   0  50
+      Black     0   0   0
+      Red       0 100 100
+      Maroon    0 100  50
+         .
+         .
+         .
+      Teal    180 100  50
+      Blue    240 100 100
+      Navy    240 100  50
+      Fuchsia 300 100 100
+      Purple  300 100  50
+
+  * java-introcs ColorHSB 25 84 97 < wiki.txt
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Princeton_Orange"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 25 84 97
+
+    - standard input:
+      Absolute_Zero                           217 100  73
+      Acid_Green                               65  86  75
+      Aero                                    206  47  91
+      Aero_Blue                               151  21 100
+      African_Violet                          288  31  75
+      Air_Force_Blue_RAF                      204  45  66
+                 .
+                 .
+                 .
+      Yellow_Rose                              56 100 100
+      Yellow_Sunshine                          58 100 100
+      Zaffre                                  233 100  66
+      Zinnwaldite_Brown                        23  82  17
+      Zomp                                    166  66  65
+
+==> FAILED
+
+Test 6: check main() computes closest color
+  * web.txt
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Green"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 136 3 70
+
+    - standard input:
+      White     0   0 100
+      Silver    0   0  75
+      Gray      0   0  50
+      Black     0   0   0
+      Red       0 100 100
+      Maroon    0 100  50
+         .
+         .
+         .
+      Teal    180 100  50
+      Blue    240 100 100
+      Navy    240 100  50
+      Fuchsia 300 100 100
+      Purple  300 100  50
+
+    - failed on trial 1 of 1000
+
+  * crayola.txt
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Green_Blue"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 204 89 85
+
+    - standard input:
+      Red                       346  96  93
+      Maroon                    346  83  76
+      Scarlet                   350  94  99
+      Brick_Red                 352  77  78
+      English_Vermilion         358  65  80
+      Madder_Lake               359  75  80
+              .
+              .
+              .
+      Mahogany                    0  74  79
+      Peach                      26  36 100
+      Sepia                      17  59  62
+      Tan                        25  50  85
+      White                       0   0 100
+
+    - failed on trial 1 of 1000
+
+  * wiki.txt
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Old_Lavender"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 302 12 52
+
+    - standard input:
+      Absolute_Zero                           217 100  73
+      Acid_Green                               65  86  75
+      Aero                                    206  47  91
+      Aero_Blue                               151  21 100
+      African_Violet                          288  31  75
+      Air_Force_Blue_RAF                      204  45  66
+                 .
+                 .
+                 .
+      Yellow_Rose                              56 100 100
+      Yellow_Sunshine                          58 100 100
+      Zaffre                                  233 100  66
+      Zinnwaldite_Brown                        23  82  17
+      Zomp                                    166  66  65
+
+    - failed on trial 1 of 100
+
+==> FAILED
+
+
+Tests 7a to 10 test that main() computes the closest color with respect
+to the student's distanceSquaredTo() method, even if that method returns
+incorrect values.
+
+Test 7a: check main() with random command-line arguments
+  * web.txt
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Gray"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 17 44 50
+
+    - standard input:
+      White     0   0 100
+      Silver    0   0  75
+      Gray      0   0  50
+      Black     0   0   0
+      Red       0 100 100
+      Maroon    0 100  50
+         .
+         .
+         .
+      Teal    180 100  50
+      Blue    240 100 100
+      Navy    240 100  50
+      Fuchsia 300 100 100
+      Purple  300 100  50
+
+    - failed on trial 1 of 1000
+
+  * crayola.txt
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Middle_Green"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 115 1 31
+
+    - standard input:
+      Red                       346  96  93
+      Maroon                    346  83  76
+      Scarlet                   350  94  99
+      Brick_Red                 352  77  78
+      English_Vermilion         358  65  80
+      Madder_Lake               359  75  80
+              .
+              .
+              .
+      Mahogany                    0  74  79
+      Peach                      26  36 100
+      Sepia                      17  59  62
+      Tan                        25  50  85
+      White                       0   0 100
+
+    - failed on trial 1 of 1000
+
+  * wiki.txt
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Cinnamon_Satin"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 335 55 76
+
+    - standard input:
+      Absolute_Zero                           217 100  73
+      Acid_Green                               65  86  75
+      Aero                                    206  47  91
+      Aero_Blue                               151  21 100
+      African_Violet                          288  31  75
+      Air_Force_Blue_RAF                      204  45  66
+                 .
+                 .
+                 .
+      Yellow_Rose                              56 100 100
+      Yellow_Sunshine                          58 100 100
+      Zaffre                                  233 100  66
+      Zinnwaldite_Brown                        23  82  17
+      Zomp                                    166  66  65
+
+    - failed on trial 1 of 100
+
+==> FAILED
+
+Test 7b: check main() with random input files
+  * random input files with 10 pre-defined colors
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Color_06"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 67 95 58
+
+    - standard input:
+      Color_01   250  43  85
+      Color_02   246  54   0
+      Color_03   242  83  85
+      Color_04   124  26  46
+      Color_05   264   7  73
+      Color_06    70  53  93
+      Color_07    67  27  55
+      Color_08   315  22  16
+      Color_09   272  84  23
+      Color_10   331  12  50
+
+    - failed on trial 1 of 1000
+
+  * random input files with 20 pre-defined colors
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Color_11"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 107 65 76
+
+    - standard input:
+      Color_01   101  18  46
+      Color_02   222  27  90
+      Color_03    38  32  47
+      Color_04    35  54  62
+      Color_05   352  81  38
+      Color_06   228  61   3
+          .
+          .
+          .
+      Color_16    87  25  47
+      Color_17   222  18  60
+      Color_18   126   4  24
+      Color_19   331  81  22
+      Color_20    80  46  42
+
+    - failed on trial 1 of 1000
+
+  * random input files with 2 pre-defined colors
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Color_01"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 260 48 95
+
+    - standard input:
+      Color_01   181   9  65
+      Color_02   184 100  36
+
+    - failed on trial 1 of 1000
+
+  * random input files with 1 pre-defined color
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Color_01"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 284 94 94
+
+    - standard input:
+      Color_01   255  25  75
+
+    - failed on trial 1 of 1000
+
+==> FAILED
+
+Test 8: check main() with ties possible for closest color
+  * wiki.txt
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Black"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 33 4 4
+
+    - standard input:
+      Absolute_Zero                           217 100  73
+      Acid_Green                               65  86  75
+      Aero                                    206  47  91
+      Aero_Blue                               151  21 100
+      African_Violet                          288  31  75
+      Air_Force_Blue_RAF                      204  45  66
+                 .
+                 .
+                 .
+      Yellow_Rose                              56 100 100
+      Yellow_Sunshine                          58 100 100
+      Zaffre                                  233 100  66
+      Zinnwaldite_Brown                        23  82  17
+      Zomp                                    166  66  65
+
+    - failed on trial 1 of 100
+
+  * grayscale.txt
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Gray_0"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 44 2 0
+
+    - standard input:
+        Gray_0  0  0   0
+        Gray_1  0  0   1
+        Gray_2  0  0   2
+        Gray_3  0  0   3
+        Gray_4  0  0   4
+        Gray_5  0  0   5
+         .
+         .
+         .
+       Gray_96  0  0  96
+       Gray_97  0  0  97
+       Gray_98  0  0  98
+       Gray_99  0  0  99
+      Gray_100  0  0 100
+
+    - failed on trial 1 of 1000
+
+  * random input files with 10 pre-defined colors
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Color_09"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 30 0 1
+
+    - standard input:
+      Color_01    18   5   9
+      Color_02     4   5  10
+      Color_03    60   3   4
+      Color_04     6   7   9
+      Color_05    42  10   2
+      Color_06    43   9   3
+      Color_07     0   4   0
+      Color_08    46   1   2
+      Color_09    18   3   6
+      Color_10    44   1   1
+
+    - failed on trial 1 of 1000
+
+  * random input files with 20 pre-defined colors
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Color_02"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 52 7 6
+
+    - standard input:
+      Color_01    24  10   4
+      Color_02    52  10   1
+      Color_03    56   4   9
+      Color_04    26   8   6
+      Color_05    30   1   9
+      Color_06    45  10   4
+          .
+          .
+          .
+      Color_16     1   7   5
+      Color_17    32   1   2
+      Color_18     6   3   1
+      Color_19    22   7   5
+      Color_20    34   1   7
+
+    - failed on trial 1 of 1000
+
+==> FAILED
+
+Test 9: check main() with large input files
+  * random input files with 2000 pre-defined colors
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Color_786"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 170 31 55
+
+    - standard input:
+      Color_01   151  24  29
+      Color_02    45  70  55
+      Color_03    98  41  75
+      Color_04     8  91  31
+      Color_05    26  92  96
+      Color_06   112   3  31
+          .
+          .
+          .
+      Color_1996   3  84  88
+      Color_1997 100   0  31
+      Color_1998 306  13  21
+      Color_1999 149  51  73
+      Color_2000  94  87  41
+
+    - failed on trial 1 of 2
+
+  * random input files with 5000 pre-defined colors
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Color_2719"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 10 0 60
+
+    - standard input:
+      Color_01   128  22  45
+      Color_02   331  24  97
+      Color_03   248  88  74
+      Color_04   158  18  99
+      Color_05    52  83  31
+      Color_06    83  30  81
+          .
+          .
+          .
+      Color_4996  36  36  41
+      Color_4997 161  97  26
+      Color_4998  73  80  67
+      Color_4999 113  84  23
+      Color_5000   7  94  40
+
+    - failed on trial 1 of 2
+
+  * random input files with 10000 pre-defined colors
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Color_626"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 142 59 51
+
+    - standard input:
+      Color_01   224  21  32
+      Color_02    24  84  53
+      Color_03   244  65  90
+      Color_04   190  43  65
+      Color_05   222  22  54
+      Color_06   229  40  25
+          .
+          .
+          .
+      Color_9996  60  72  81
+      Color_9997 358 100  23
+      Color_9998 271  53  15
+      Color_9999 344  25  45
+      Color_10000  14  24  22
+
+    - failed on trial 1 of 2
+
+==> FAILED
+
+Test 10: check main() when distance is very large
+  * colors1.txt
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Aqua"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 2 5 2
+
+    - standard input:
+      Aqua  180 100 100
+
+    - failed on trial 1 of 50
+
+  * colors8.txt
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Aqua_6"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 4 8 4
+
+    - standard input:
+      Aqua_0  180 100 100
+      Aqua_1  180 100  99
+      Aqua_2  180  99 100
+      Aqua_3  180  99  99
+      Aqua_4  179 100 100
+      Aqua_5  179  99 100
+      Aqua_6  179 100  99
+      Aqua_7  181 100 100
+
+    - failed on trial 1 of 50
+
+  * colors10.txt
+    - student prints a name that is not a pre-defined color
+    - student   color name = "null"
+    - reference color name = "Aqua_5"
+
+    - student prints invalid HSB values
+    - student   hue        = [unable to parse]
+    - student   saturation = [unable to parse]
+    - student   brightness = [unable to parse]
+    - command-line arguments: 5 16 68
+
+    - standard input:
+      Aqua_0  180 100 100
+      Aqua_1  180 100  99
+      Aqua_2  180  99 100
+      Aqua_3  180  99  99
+      Aqua_4  179 100 100
+      Aqua_5  179  99 100
+      Aqua_6  179 100  99
+      Aqua_7  181 100 100
+      Aqua_8  181  99 100
+      Aqua_9  181 100  99
+
+    - failed on trial 1 of 50
+
+==> FAILED
+
+Total: 8/17 tests passed!
+
+
+================================================================
+Testing correctness of Clock
+*-----------------------------------------------------------
+Running 17 total tests.
+
+Test 1a: construct a Clock object; check formatting of toString()
+  * hours = 11, minutes = 59
+  * hours =  3, minutes = 30
+  * hours = 16, minutes =  5
+  * hours =  0, minutes =  0
+  * hours = 23, minutes = 59
+==> passed
+
+Test 1b: construct random Clock objects; check formatting of toString()
+  * 10000 trials with 10 <= hours < 24, 10 <= minutes < 60
+  * 10000 trials with  0 <= hours < 24, 10 <= minutes < 60
+  * 10000 trials with 10 <= hours < 24,  0 <= minutes < 60
+  * 10000 trials with  0 <= hours < 24,  0 <= minutes < 60
+==> passed
+
+Test 2a: construct a Clock object; check toString()
+  * hours = 11, minutes = 59
+  * hours =  3, minutes = 30
+  * hours =  0, minutes =  0
+  * hours = 23, minutes = 59
+==> passed
+
+Test 2b: construct random Clock objects; check toString()
+  * 10000 trials with 10 <= hours < 24, 10 <= minutes < 60
+  * 10000 trials with  0 <= hours < 24, 10 <= minutes < 60
+  * 10000 trials with 10 <= hours < 24,  0 <= minutes < 60
+  * 10000 trials with  0 <= hours < 24,  0 <= minutes < 60
+==> passed
+
+Test 3: construct two random Clock objects; check isEarlierThan()
+  * 10000 trials (earlier)
+  * 10000 trials (later)
+  * 10000 trials (equal)
+  * 10000 trials (reference equal)
+==> passed
+
+Test 4a: construct a Clock object; call tic(); check toString()
+  * hours = 12, minutes = 34
+  * hours =  3, minutes = 30
+  * hours =  0, minutes =  0
+  * hours = 23, minutes =  0
+==> passed
+
+Test 4b: construct a Clock object; call tic(); check toString()
+  * hours =  0, minutes = 59
+  * hours =  1, minutes = 59
+  * hours =  2, minutes = 59
+  * hours = 11, minutes = 59
+  * hours = 12, minutes = 59
+  * hours = 22, minutes = 59
+  * hours = 23, minutes = 59
+==> passed
+
+Test 4c: construct random Clock objects; call tic(); check toString()
+  * 10000 trials with 10 <= hours < 23, 10 <= minutes < 59
+  * 10000 trials with  0 <= hours < 23, 10 <= minutes < 59
+  * 10000 trials with 10 <= hours < 23,  0 <= minutes < 59
+  * 10000 trials with  0 <= hours < 24,  0 <= minutes < 60
+==> passed
+
+Test 5a: construct a Clock object; call toc(); check toString()
+  * hours = 12, minutes = 34, delta = 5
+  * hours =  3, minutes = 30, delta = 10
+  * hours =  0, minutes =  0, delta = 45
+  * hours = 23, minutes =  0, delta = 1
+  * hours = 23, minutes =  0, delta = 0
+==> passed
+
+Test 5b: construct a Clock object; call toc(); check toString()
+  * hours =  0, minutes = 59, delta = 10
+  * hours =  1, minutes = 59, delta = 60
+  * hours =  2, minutes = 59, delta = 1
+  * hours = 11, minutes = 59, delta = 45
+  * hours = 12, minutes = 59, delta = 120
+  * hours = 22, minutes = 59, delta = 1440
+  * hours = 23, minutes = 59, delta = 100
+  * hours =  0, minutes =  0, delta = 30000
+==> passed
+
+Test 5c: construct random Clock objects; call toc(); check toString()
+  * 10000 trials with 10 <= hours < 23, 10 <= minutes < 59,  0 <= delta < 60
+  * 10000 trials with  0 <= hours < 23, 10 <= minutes < 59,  0 <= delta < 60
+  * 10000 trials with 10 <= hours < 23,  0 <= minutes < 59,  0 <= delta < 60
+  * 10000 trials with  0 <= hours < 24,  0 <= minutes < 60,  0 <= delta < 60
+  * 10000 trials with  0 <= hours < 24,  0 <= minutes < 60,  0 <= delta < 1440
+  * 10000 trials with  0 <= hours < 24,  0 <= minutes < 60,  0 <= delta < 14400
+==> passed
+
+Test 6a: construct random Clock objects with 1-argument constructor; check toString()
+  * time = 11:59
+  * time = 03:30
+  * time = 16:05
+  * time = 00:00
+  * time = 23:59
+==> passed
+
+Test 6b: construct random Clock objects with 1-argument constructor; check toString()
+  * 10000 trials with 10 <= hours < 24, 10 <= minutes < 60
+  * 10000 trials with  0 <= hours < 24, 10 <= minutes < 60
+  * 10000 trials with 10 <= hours < 24,  0 <= minutes < 60
+  * 10000 trials with  0 <= hours < 24,  0 <= minutes < 60
+==> passed
+
+Test 7: check two-argument constructor with invalid arguments
+  * hours = 24, minutes =  0
+  * hours = 24, minutes = 60
+  * hours =  0, minutes = 60
+  * hours = -1, minutes = 30
+  * hours = 12, minutes = -1
+  * hours =  0, minutes = -1
+  * hours = -1, minutes = -1
+  * hours = 59, minutes = 23
+  * hours = -2147483648, minutes = -2147483648
+  * hours = -2147483648, minutes = 2147483647
+  * hours = 2147483647, minutes = -2147483648
+  * hours = 2147483647, minutes = 2147483647
+==> passed
+
+Test 8: check 1-argument constructor with invalid arguments
+  * time = "24:00"
+  * time = "25:10"
+  * time = "12:60"
+  * time = "12:060"
+  * time = "12:100"
+  * time = "2:56"
+    - does not throw an exception
+
+  * time = "2:5"
+    - does not throw an exception
+
+  * time = "02:5"
+    - does not throw an exception
+
+  * time = "0:0"
+    - does not throw an exception
+
+  * time = "00007:23"
+    - does not throw an exception
+
+  * time = "07:000023"
+    - does not throw an exception
+
+  * time = "12,34"
+  * time = "1234"
+  * time = "HH:MM"
+  * time = "0"
+  * time = ""
+  * time = "-12:34"
+  * time = "0x06:34"
+  * time = " 12:34"
+  * time = "12:34 "
+  * time = ":1234"
+  * time = "1:234"
+  * time = "123:4"
+  * time = "1234:"
+  * time = "12345"
+==> FAILED
+
+Test 9: construct Clock with 2-argument constructor; call toc() with negative delta
+  * hours = 11, minutes = 59, delta = -1
+  * hours = 23, minutes = 59, delta = -5
+  * hours =  1, minutes = 23, delta = -10
+  * hours = 16, minutes = 45, delta = -100
+  * hours = 12, minutes =  0, delta = -1440
+  * hours = 21, minutes = 30, delta = -14400
+  * hours = 17, minutes = 18, delta = -2147483648
+==> passed
+
+Test 10: create two Clock objects from 2-argument constructor; check random
+         intermixed sequence of calls to toString(), isEarlierThan(), tic(),
+         and toc(), with probabilities (p1, p2, p3, p4), respectively
+  * p = (0.5, 0.5, 0.0, 0.0)
+  * p = (0.5, 0.0, 0.5, 0.0)
+  * p = (0.5, 0.0, 0.0, 0.5)
+  * p = (0.0, 0.5, 0.5, 0.0)
+  * p = (0.0, 0.5, 0.0, 0.5)
+  * p = (0.2, 0.2, 0.3, 0.3)
+  * p = (0.2, 0.2, 0.3, 0.3)
+==> passed
+
+Total: 16/17 tests passed!
+
+
+================================================================
+********************************************************************************
+*  MEMORY
+********************************************************************************
+
+Analyzing memory of ColorHSB
+*-----------------------------------------------------------
+Running 1 total tests.
+
+Test 1: Memory usage per ColorHSB object
+  * number bytes used by student   ColorHSB object = 32
+  * number bytes used by reference ColorHSB object = 32
+==> passed
+
+Total: 1/1 tests passed!
+
+
+================================================================
+
+
+
+Analyzing memory of Clock
+*-----------------------------------------------------------
+Running 1 total tests.
+
+Test 1: Memory usage per Clock object
+  * number bytes used by student   Clock object = 24
+  * number bytes used by reference Clock object = 24
+==> passed
+
+Total: 1/1 tests passed!
+
+
+================================================================
+
+
+
+********************************************************************************
+*  TIMING
+********************************************************************************
+
+Timing Clock
+*-----------------------------------------------------------
+Running 51 total tests.
+
+Test 1: create n Clock object; call toString() n times
+
+                    n  seconds
+----------------------------------
+=> passed        1000     0.01
+=> passed        2000     0.01
+=> passed        4000     0.02
+=> passed        8000     0.04
+=> passed       10000     0.05
+=> passed       20000     0.09
+=> passed       40000     0.13
+=> passed       80000     0.09
+=> passed      100000     0.09
+=> passed      200000     0.17
+
+==> 10/10 tests passed
+
+
+Test 2: create n Clock object; call isEarlierThan() n^2 times
+
+                    n  seconds
+----------------------------------
+=> passed         100     0.00
+=> passed         200     0.00
+=> passed         400     0.00
+=> passed         800     0.00
+=> passed        1000     0.00
+=> passed        2000     0.01
+=> passed        4000     0.02
+=> passed        8000     0.09
+=> passed       10000     0.15
+
+==> 9/9 tests passed
+
+
+Test 3: create a Clock object; call tic() n times
+
+                    n  seconds
+----------------------------------
+=> passed        1000     0.00
+=> passed        2000     0.00
+=> passed        4000     0.00
+=> passed        8000     0.00
+=> passed       10000     0.00
+=> passed       20000     0.00
+=> passed       40000     0.00
+=> passed       80000     0.00
+=> passed      100000     0.00
+=> passed      200000     0.00
+=> passed      400000     0.00
+=> passed      800000     0.00
+=> passed     1000000     0.00
+=> passed     2000000     0.00
+=> passed     4000000     0.00
+=> passed     8000000     0.00
+
+==> 16/16 tests passed
+
+
+Test 4: create a Clock object; call toc(n) n times
+
+                    n  seconds
+----------------------------------
+=> passed        1000     0.00
+=> passed        2000     0.00
+=> passed        4000     0.00
+=> passed        8000     0.00
+=> passed       10000     0.00
+=> passed       20000     0.00
+=> passed       40000     0.00
+=> passed       80000     0.00
+=> passed      100000     0.00
+=> passed      200000     0.00
+=> passed      400000     0.00
+=> passed      800000     0.00
+=> passed     1000000     0.00
+=> passed     2000000     0.00
+=> passed     4000000     0.00
+=> passed     8000000     0.00
+==> 16/16 tests passed
+
+
+Total: 51/51 tests passed!
+
+
+================================================================
